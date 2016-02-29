@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>AjaxServlet</servlet-name>
+        <servlet-class>servlet.AjaxServer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AjaxServlet</servlet-name>
+        <url-pattern>/AjaxServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>servlet.RegisterServer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+    <servlet-name>UpdateDataServlet</servlet-name>
+    <servlet-class>servlet.UpdateDataServer</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateDataServlet</servlet-name>
+        <url-pattern>/UpdateDataServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetLeaderboardServlet</servlet-name>
+        <servlet-class>servlet.GetLeaderboardServer</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetLeaderboardServlet</servlet-name>
+        <url-pattern>/GetLeaderboardServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
