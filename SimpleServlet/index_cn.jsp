@@ -9,7 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>Sugar Factory</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -21,9 +21,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="js/leaderlist.js"></script>
 	<link href="css/simple2.css" rel="stylesheet" type="text/css" />
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
-
-    
-    <link rel="stylesheet" href="css/introjs.css"/>
+	
+	<link rel="stylesheet" href="css/introjs.css"/>
     <script type="text/javascript" src="js/intro.js"></script>
 
   </head>
@@ -34,14 +33,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="home-container" style="text-align:center;">
 		
 		<div class="User_score" style="text-align:center;font-weight:bold">
-			<div data-step="4" data-intro="The total score of the game is shown here." style="margin:auto;width:100px;height:35px;">			
-			<div style="float:left">Score:</div>			
+			<div data-step="4" data-intro="这里展示目前的总分。" style="margin:auto;width:100px;height:35px;">			
+			<div style="float:left">分数:</div>			
 			<div id="div_score" style="float:left">0</div>
 		   	</div>
 		</div>
-		<div  class="User_grade_container">		
-			<div class="User_ratings User_grade" id="div_fraction0" >
-			   	<div data-step="1" data-intro="You can decide the number of workers using the slider bar. " class="ratings_bars">
+		<div class="User_grade_container">		
+			<div class="User_ratings User_grade" id="div_fraction0">
+			   	<div data-step="1" data-intro="通过滑动条设置当月工人数量。" class="ratings_bars">
 					
 					<span class="bars_10">1</span>
 					<div class="scale" id="bar0">
@@ -49,43 +48,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<span id="btn0"></span>
 					</div>
 					<span class="bars_10">12</span>
-					<div  class="notestyle" >Number of Workers <span id="title0">1</span></div>
+					<div  class="notestyle" >工人数量 <span id="title0">1</span></div>
 				</div>
-				<button data-step="2" data-intro="Click this button to confirm your number." onclick="nextstep()" class="next-btn" id="btn_next" disabled="disabled">Assign</button>
-				<a data-step="5" data-intro="You can view the leader board anytime you wish." href="#" onclick="checklb();return false" class="checklb-btn" id="btn_checklb" >L-Board</a>
+				<button  data-step="2" data-intro="点击按钮确认工人数量。" onclick="nextstep()" class="next-btn" id="btn_next" disabled="disabled">下一步</button>
+				<a data-step="5" data-intro="可以随时查看游戏排行榜。" href="#" onclick="checklb();return false" class="checklb-btn" id="btn_checklb" >排行榜</a>
 				
 			</div>
 		</div>
 		
-		<div data-step="3" data-intro="The results will be displayed in this area." class="echart-container" id="echartcontainer" style="text-algin:left;">
+		<div data-step="3" data-intro="每一步的结果在这里展示。" class="echart-container" id="echartcontainer" style="text-algin:left;">
 		</div>
 		
 		<!-- -----------result view------------ -->
 		<div id="tryagain-out" class="tryagain-background" style="display:none;text-align:center">
 			
 		    <div id="tryagain-in" class="tryagain" style="display:block;margin-top: 25%">
-		    	<p class="fontstyle" style="font-size:40" id="p_score">You score is </p>
+		    	<p class="fontstyle" style="font-size:40" id="p_score">您的得分是 </p>
 		    	<br>
-				<p class="fontstyle">Try Again?</p>
-				<button onclick="tryagain()" class="try-btn" id="btn_confirm">Confirm</button>
-				<button onclick="nottryagain()" class="try-btn" id="btn_cansel">Cancel</button>		 
+				<p class="fontstyle">再来一次？</p>
+				<button onclick="tryagain()" class="try-btn" id="btn_confirm">确定</button>
+				<button onclick="nottryagain()" class="try-btn" id="btn_cansel">取消</button>		 
 			</div>
 			<div id="getreward-in" class="tryagain" style="display:none">
-				<p class="fontstyle">Your score is over threshold. Ask the manager for a reward.</p>
+				<p class="fontstyle">得分超过阈值. 可以向管理员获取奖励.</p>
 				<!--<button onclick="getReward()" class="try-btn" id="btn_confirm">Confirm</button>
 				<button onclick="nottryagain()" class="try-btn" id="btn_cansel">Cancel</button>	-->	 
 			</div>
 		</div>
-		<!-- end result view -->
-		
 		<!-- index result view -->		
 		<div id="leaderboardbg" class="tryagain-background" style="display:none;text-align:center">
 			<!-- daily Leader Board -->
 			<div class="leaderlist" style="margin-top:100px;">
     
 		    <div class="header">
-		        <div class="switch" id="switch"><a class="switch_btn_focus" id="switch_qleaderlist" href="javascript:void(0);" tabindex="7">Daliy</a>
-					<a class="switch_btn" id="switch_leaderlist" href="javascript:void(0);" tabindex="8">Monthly</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
+		        <div class="switch" id="switch"><a class="switch_btn_focus" id="switch_qleaderlist" href="javascript:void(0);" tabindex="7">日榜</a>
+					<a class="switch_btn" id="switch_leaderlist" href="javascript:void(0);" tabindex="8">月榜</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
 		        </div>
 		    </div>    
 		  
@@ -103,8 +100,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						   <caption> </caption>
 						   <thead>
 						      <tr>
-						         <th>NickName</th>
-						         <th>Score</th>
+						         <th>昵称</th>
+						         <th>得分</th>
 						         
 						         
 						      </tr>
@@ -131,8 +128,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						   <caption> </caption>
 						   <thead>
 						      <tr>
-						         <th>NickName</th>
-						         <th>Score</th>
+						         <th>昵称</th>
+						         <th>得分</th>
 						         
 						         
 						      </tr>
@@ -156,13 +153,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 		<!-- end index result view -->
 		
+		
 	</div>
 	<div id="instructions-out" class="tryagain-background" style="display:block" >
 			<div id="instructions-in" class="instructions-in" style="display:block">
 				<p class="fontstyle-2" id="inst_1">				</p>
 				<div style="margin-left:40%;float:left;display:none" id="instruction-step1-display">
-				<button onclick="instruction_step1()" class="instruction-btn" id="btn_confirm">next</button>
-				<button onclick="instruction_skip()" class="instruction-btn" id="btn_confirm">skip</button>	
+				<button onclick="instruction_step1()" class="instruction-btn" id="btn_confirm">继续</button>	
+				<button onclick="instruction_skip()" class="instruction-btn" id="btn_confirm">跳过</button>	
 				</div>		 
 			</div>
 			
@@ -172,8 +170,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="instructions-in-2" class="instructions-in" style="display:block">
 				<p class="fontstyle-2" id="inst_2">				</p>
 				<div style="margin-left:40%;float:left">
-				<button onclick="instruction_step2()" class="instruction-btn" id="btn_confirm">next</button>
-				</div>			 
+				<button onclick="instruction_step2()" class="instruction-btn" id="btn_confirm">继续</button>	
+				</div>		 
 			</div>
 			
 		</div>	
@@ -182,7 +180,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="instructions-in-3" class="instructions-in" style="display:block">
 				<p class="fontstyle-2" id="inst_3">				</p>
 				<div style="margin-left:40%;float:left">
-				<button onclick="instruction_step3()" class="instruction-btn" id="btn_confirm">next</button>
+				<button onclick="instruction_step3()" class="instruction-btn" id="btn_confirm">继续</button>
 				</div>
 			</div>
 			
@@ -192,7 +190,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div id="instructions-in-4" class="instructions-in" style="display:block">
 				<p class="fontstyle-2" id="inst_4">				</p>
 				<div style="margin-left:40%;float:left">
-				<button onclick="instruction_step4()" class="instruction-btn" id="btn_confirm">next</button>
+				<button onclick="instruction_step4()" class="instruction-btn" id="btn_confirm">继续</button>
 				</div>
 			</div>
 			
@@ -205,9 +203,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 </body> 
 
-  <script src="http://echarts.baidu.com/build/dist/echarts.js"  charset="utf-8"></script>
-<!--<script type="text/javascript" src="./js/echarts.js"> </script> -->
-
+<script src="http://echarts.baidu.com/build/dist/echarts.js"  charset="utf-8"></script>
 <script type = "text/javascript">
 	var work_n = 1;
 	var proc_c = 6000;
@@ -229,7 +225,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	window.onload = function(){
 		//document.write(document.referrer); http://localhost:8080/SimpleServlet/index_1
 		if(!document.referrer){
-		    location.href = "Login.jsp";
+		    location.href = "Login_cn.jsp";
 		}
 		
 		echart(1);
@@ -255,12 +251,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			threshold = parseInt(para[5]);
 			
 		}
-		var ins_1 = "You are in charge of running a sugar production factory in an underdeveloped country. You control the rate of production by simply changing the size of the work force, ignoring all other factors. You start with 600 workers that produced 6000 tones of sugar in the previous month.";
-	    var ins_2 = "Your task is to reach and maintain a target output of "+
-	               target+" tons per month. To help with the task, the maximum output of the factory has been set at "+maxOut+" and the minimum to "+minOut+".";
-	    var ins_3 = "You will have to run the factory for "+steptotal+" months. Each month you will assign a number between 1-12 representing the number of workers that would work in the factory that month. The computer will multiply your number by 100 to get the actual number of workers. Example: 6 is 600 workers.";
-		var ins_4 = "You will be able to see how well you are doing from the graph as well as your score, which depends on you hitting the target You will be given a running score (displayed in the top left corner). The closer you are to the target the more points you will get, and given that your goal is to stabilize the system, the more on-target responses in a row the higher your score will be.\n"
-					+"If you reach "+threshold+" value. You will be eligible to claim your prize.";
+		var ins_1 = "你在发展中国家管理运营一家糖果工厂。 你通过调整工人的数量来影响工厂的产量, 忽略其他可能影响产量的因素。初始设定是上个月你有600名工人，产量是6000吨。";
+	    var ins_2 = "你的任务是达到并维持稳定的目标产量"+target+"吨.为了帮助你完成任务，产量的最大值不会超过"+maxOut+"吨。最小不会低于"+minOut+"吨。";
+	    var ins_3 = "你将经营工厂 "+steptotal+"个月。 每月你需要设定一个1到12的数字用来确定当月的工人数量。计算机会将这个数字扩大100倍作为真实的工人数量。例如:6 代表 600 个工人.";
+		var ins_4 = "你将从图上看到你之前的表现，同时也会显示你的得分, 得分的多少取决于你距离目标值的远近。得分将会显示在屏幕上方。 越靠近目标值你的单次得分会越高, 如果连续命中目标值，你将会获得额外的加分，连续命中越多得分越高。\n"
+					+"如果你的得分超过 "+threshold+"，你将有可能获得一份奖励.";
 		var obj_p_1 = document.getElementById("inst_1");
 		var obj_p_2 = document.getElementById("inst_2");
 		var obj_p_3 = document.getElementById("inst_3");
@@ -331,7 +326,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 		var queryStr="name="+para[0]+"&worker="+work_n+"&proc="+proc_c+"&stepnum="+stepnum+"&oldscore="+score+"&flag="+flag+"&target="+target;
 		//alert(queryStr);//115.28.33.155
-		var url = "/SimpleServlet/servlet/sugar?"+queryStr;	
+		var url = "http://localhost:8080/SimpleServlet/servlet/sugar?"+queryStr;	
 		if(window.XMLHttpRequest){
 			req = new XMLHttpRequest();
 	    }else if(window.ActiveXObject){
@@ -341,12 +336,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		req.onreadystatechange = Callback;
 		req.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 		req.send(null);
-	};
+	}
 	
 	function checklb(){
 		
 		//alert(queryStr);//115.28.33.155
-		var url = "/SimpleServlet/leaderboard";
+		var url = "http://localhost:8080/SimpleServlet/leaderboard";
 		if(window.XMLHttpRequest){
 			req = new XMLHttpRequest();
 	    }else if(window.ActiveXObject){
@@ -443,21 +438,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        obj_tryagain_bg.style.display="none";
 		    }            
 		}
-		
 		data = [];
         score = 0;//数据初始化
         flag = 0;
         echart(0);
         var obj_div = document.getElementById("div_score");	
         obj_div.innerHTML = score;
-	};
+		
+	}
 	
 	/*
 	 * 用户拒绝进行下一次实验
 	 */
 	function nottryagain(){
-		location.href = "Login.jsp";
-	};
+		location.href = "Login_cn.jsp";
+	}
 	
 	function instruction_skip(){
 		var obj_tryagain_bg_1 = document.getElementById("instructions-out");
@@ -496,7 +491,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        obj_tryagain_bg_4.style.display="none";
 		    }            
 		}
-		//bdreamStart();
+		
 		introJs().start();
 	}
 	
@@ -521,7 +516,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    }            
 		}
 
-	};
+	}
 	
 	function instruction_step2(){
 		var obj_tryagain_bg_2 = document.getElementById("instructions-out-2");
@@ -544,7 +539,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    }            
 		}
 
-	};
+	}
 	
 	function instruction_step3(){
 		var obj_tryagain_bg_3 = document.getElementById("instructions-out-3");
@@ -567,7 +562,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    }            
 		}
 
-	};
+	}
 	
 	function instruction_step4(){
 		var obj_tryagain_bg_4 = document.getElementById("instructions-out-4");
@@ -579,10 +574,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    {
 		        obj_tryagain_bg_4.style.display="none";
 		    }            
-		}
-		//bdreamStart();		
+		}		
 		introJs().start();
-	};
+	}
 	
 	function Callback(){
         if(req.readyState == 4){
@@ -625,25 +619,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						var p_score = document.getElementById("p_score");
 						
 						stamp.disabled = true;
-						p_score.innerHTML = "You score is "+ score+".";
-						/*var ttable = document.getElementById("tbody-leader");
-						var leaderlistcon = "";
-						//alert("Sdg");
-						for(var i=0; i<5; i++){//默认列表是5个人
-							var st = temstr[i+1].split("=");
-							leaderlistcon = leaderlistcon+"<tr><td>"+st[0]+"</td><td>"+st[1]+"</td></tr>";								
-						}
-						ttable.innerHTML = leaderlistcon;
-						
-						var ttable_monthly = document.getElementById("tbody-leader-monthly");
-						var leaderlistcon_monthly = "";
-						//alert("Sdg");
-						for(var i=5; i<10; i++){//默认列表是5个人
-							var st_monthly = temstr[i+1].split("=");
-							leaderlistcon_monthly = leaderlistcon_monthly+"<tr><td>"+st_monthly[0]+"</td><td>"+st_monthly[1]+"</td></tr>";								
-						}
-						ttable_monthly.innerHTML = leaderlistcon_monthly;
-						*/
+						p_score.innerHTML = "您的得分是 "+ score+".";
 						
 						
 						if(obj_tryagain_bg)
@@ -683,7 +659,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                
 				//alert("3"+str);
         }
-    };
+    }
     
     
     function echart(v){
@@ -692,7 +668,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         require.config({
             paths: {
                 echarts: 'http://echarts.baidu.com/build/dist'
-                //echarts: './js/'
             }
         });
         
@@ -716,7 +691,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    },*/
 				    
 				    calculable : false,
-				    animation : false,
 				    /*dataZoom : {
 				        show : true,
 				        realtime : true,
@@ -773,7 +747,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				            type:'line',
 				            data:function (){
 				                var list = [];
-				                for (var i = 0; i <= 0; i++) {//steptotal
+				                for (var i = 0; i <= steptotal; i++) {
 				                    list.push(target);
 				                }
 				                return list;
@@ -788,7 +762,54 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    ]
 				};
 				option.yAxis[0].min=minOut;
-       			option.yAxis[0].max= maxOut;				                    
+       			option.yAxis[0].max= maxOut;
+       			
+				//var ecConfig = require('echarts/config');
+				//function eConsole(param) {
+				    /*var mes = '【' + param.type + '】';
+				    if (typeof param.seriesIndex != 'undefined') {
+				        mes += '  seriesIndex : ' + param.seriesIndex;
+				        mes += '  dataIndex : ' + param.dataIndex;
+				    }
+				    if (param.type == 'hover') {
+				        document.getElementById('hover-console').innerHTML = 'Event Console : ' + mes;
+				    }
+				    else {
+				        document.getElementById('console').innerHTML = mes;
+				    }
+				    console.log(param);*/
+				//}
+				/*
+				// -------全局通用
+				REFRESH: 'refresh',
+				RESTORE: 'restore',
+				RESIZE: 'resize',
+				CLICK: 'click',
+				DBLCLICK: 'dblclick',
+				HOVER: 'hover',
+				MOUSEOUT: 'mouseout',
+				// -------业务交互逻辑
+				DATA_CHANGED: 'dataChanged',
+				DATA_ZOOM: 'dataZoom',
+				DATA_RANGE: 'dataRange',
+				DATA_RANGE_HOVERLINK: 'dataRangeHoverLink',
+				LEGEND_SELECTED: 'legendSelected',
+				LEGEND_HOVERLINK: 'legendHoverLink',
+				MAP_SELECTED: 'mapSelected',
+				PIE_SELECTED: 'pieSelected',
+				MAGIC_TYPE_CHANGED: 'magicTypeChanged',
+				DATA_VIEW_CHANGED: 'dataViewChanged',
+				TIMELINE_CHANGED: 'timelineChanged',
+				MAP_ROAM: 'mapRoam',
+				*/
+				/*myChart.on(ecConfig.EVENT.CLICK, eConsole);
+				myChart.on(ecConfig.EVENT.DBLCLICK, eConsole);
+				//myChart.on(ecConfig.EVENT.HOVER, eConsole);
+				myChart.on(ecConfig.EVENT.DATA_ZOOM, eConsole);
+				myChart.on(ecConfig.EVENT.LEGEND_SELECTED, eConsole);
+				myChart.on(ecConfig.EVENT.MAGIC_TYPE_CHANGED, eConsole);
+				myChart.on(ecConfig.EVENT.DATA_VIEW_CHANGED, eConsole);*/
+                    
         
             // 为echarts对象加载数据 
             myChart.setOption(option); 
@@ -812,7 +833,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		//setTimeout(enable_nextstep,800);
 	}
 	
-	setInterval("enable_nextstep()","300");
+	setInterval("enable_nextstep()","1600");
 	
 	function getReward(){
 		alert("You are a genius.");
@@ -834,7 +855,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	};
 	
 	var t1 = window.setInterval(skip,600000);
-
-
 </script>
+
+ 
 </html>

@@ -104,7 +104,7 @@ li {list-style:none}
 .User_ratings .ratings_title input{width:120px;height:48px;border:0;margin:15px auto auto 45px;float:left;background:url(../images/batton_01.png) -202px -2441px no-repeat;}
 .User_ratings .ratings_title input:hover{background:url(../images/batton_01.png) -202px -2489px no-repeat;}
 .User_ratings .ratings_title input01{background:url(../images/batton_01.png) -202px -2537px no-repeat;}
-.User_ratings .ratings_bars{width:400px;height:27px;margin-top:5px;float:left;}
+.User_ratings .ratings_bars{width:370px;height:57px;margin-top:5px;float:left;margin-right:30px;}
 .User_ratings  #title0{display:inline-block;border-radius: 10px;width:50px;height:25px;text-align:center;border:1px solid #bfbebe;line-height:25px;font-family:Georgia, "Times New Roman", Times, serif;font-size:14px;color:#a0a0a0;margin-right:10px;background:#fff;}
 .User_ratings .ratings_bars #title1{width:25px;height:25px;text-align:center;border:1px solid #bfbebe;line-height:25px;font-family:Georgia, "Times New Roman", Times, serif;font-size:14px;float:left;color:#a0a0a0;margin-right:10px;background:#fff;}
 .User_ratings .ratings_bars #title2{width:25px;height:25px;text-align:center;border:1px solid #bfbebe;line-height:25px;font-family:Georgia, "Times New Roman", Times, serif;font-size:14px;float:left;color:#a0a0a0;margin-right:10px;background:#fff;}
@@ -119,6 +119,7 @@ li {list-style:none}
 .User_grade{
 
 	width:50%;
+	height:60;
 	min-width:650px;
 	max-width:701px;
 	margin: auto;
@@ -153,6 +154,7 @@ li {list-style:none}
 .notestyle{
 	text-align:center;
 	width: 350;
+	margin-top:25;
 	font-family:Georgia, "Times New Roman", Times, serif;
 	font-size:16px;line-height:25px;
 	color:#a0a0a0;
