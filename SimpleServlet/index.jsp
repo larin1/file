@@ -68,10 +68,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	<br>
 				<p class="fontstyle">Try Again?</p>
 				<button onclick="tryagain()" class="try-btn" id="btn_confirm">Confirm</button>
-				<button onclick="nottryagain()" class="try-btn" id="btn_cansel">Cancel</button>		 
+				<button onclick="nottryagain()" class="try-btn" id="btn_cansel">Cancel</button>
 			</div>
 			<div id="getreward-in" class="tryagain" style="display:none">
-				<p class="fontstyle">Your score is over threshold. Ask the manager for a reward.</p>
+				<p class="fontstyle">Congratulations you did very well! See if you can beat your score.</p>
 				<!--<button onclick="getReward()" class="try-btn" id="btn_confirm">Confirm</button>
 				<button onclick="nottryagain()" class="try-btn" id="btn_cansel">Cancel</button>	-->	 
 			</div>
@@ -259,8 +259,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    var ins_2 = "Your task is to reach and maintain a target output of "+
 	               target+" tons per month. To help with the task, the maximum output of the factory has been set at "+maxOut+" and the minimum to "+minOut+".";
 	    var ins_3 = "You will have to run the factory for "+steptotal+" months. Each month you will assign a number between 1-12 representing the number of workers that would work in the factory that month. The computer will multiply your number by 100 to get the actual number of workers. Example: 6 is 600 workers.";
-		var ins_4 = "You will be able to see how well you are doing from the graph as well as your score, which depends on you hitting the target You will be given a running score (displayed in the top left corner). The closer you are to the target the more points you will get, and given that your goal is to stabilize the system, the more on-target responses in a row the higher your score will be.\n"
-					+"If you reach "+threshold+" value. You will be eligible to claim your prize.";
+		var ins_4 = "You will be able to see how well you are doing from the graph as well as your score, which depends on you hitting the target. You will be given a running score (displayed in the top left corner). The closer you are to the target the more points you will get, and given that your goal is to stabilize the system, the more on-target responses in a row the higher your score will be.";
 		var obj_p_1 = document.getElementById("inst_1");
 		var obj_p_2 = document.getElementById("inst_2");
 		var obj_p_3 = document.getElementById("inst_3");
@@ -345,7 +344,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	function checklb(){
 		
-		//alert(queryStr);//115.28.33.155
+		//alert(queryStr);//139.59.169.45
 		var url = "/SimpleServlet/leaderboard";
 		if(window.XMLHttpRequest){
 			req = new XMLHttpRequest();

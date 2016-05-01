@@ -94,11 +94,7 @@ I understand how the results of the study will be used. Results of this study wi
 
 Results are normally presented in terms of groups of individuals. If any individual data are presented, the data will be totally anonymous, without any means of identifying the individuals involved.
 
-I confirm that I am over 16 years of age
-
-Name (participant):                                             Signature:                                    Date:        
-
-Name (researcher):                                             Signature:                                    Date:        
+I confirm that I am over 16 years of age.
 
 Contact details of a named investigator for further information as well as the primary applicant
 
