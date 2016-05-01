@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						   <caption> </caption>
 						   <thead>
 						      <tr>
-						         <th>NickName</th>
+						         <th>User</th>
 						         <th>Score</th>
 						         
 						         
@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						   <caption> </caption>
 						   <thead>
 						      <tr>
-						         <th>NickName</th>
+						         <th>User</th>
 						         <th>Score</th>
 						         
 						         
