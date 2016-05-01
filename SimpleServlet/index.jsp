@@ -34,8 +34,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="home-container" style="text-align:center;">
 		
 		<div class="User_score" style="text-align:center;font-weight:bold">
-			<div data-step="4" data-intro="The total score of the game is shown here." style="margin:auto;width:100px;height:35px;">			
-			<div style="float:left">Score:</div>			
+			<div data-step="4" data-intro="The total score of the game is shown here." style="margin:auto;width:200px;height:35px;">
+			<div style="float:left">Score: </div>
 			<div id="div_score" style="float:left">0</div>
 		   	</div>
 		</div>
